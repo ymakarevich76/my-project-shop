@@ -3,9 +3,9 @@ function Footer() {
         <div className='page-footer purple lighten-1'>
             <div className='footer-copyright'>
                 <div className='container'>
-                    © 2014 Copyright Text
-                    <a className='grey-text text-lighten-4 right' href='#!'>
-                        More Links
+                    © {new Date().getFullYear()} Copyright Text
+                    <a className='grey-text text-lighten-4 right' href='https://github.com/ymakarevich76/my-project-shop' target="_blank" rel="noreferrer">
+                        Repo
                     </a>
                 </div>
             </div>

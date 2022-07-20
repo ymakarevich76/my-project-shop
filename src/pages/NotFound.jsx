@@ -1,0 +1,5 @@
+function NotFound () {
+
+}
+
+export {NotFound}
