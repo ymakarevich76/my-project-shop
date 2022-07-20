@@ -1,20 +1,9 @@
-import { useState } from 'react';
+import { useContext } from 'react';
+import { ShopContext } from '../context';
 
-function Search(props) {
-    const { goods, setGoods } = props;
+function Search() {
 
-    const [category, setCategory] = useState('all');
-
-    const handleRadioBtn = (e) => {
-        setCategory(e.target.dataset.category);
-        const newArr = goods.filter(
-            (item) =>
-                item.category === e.target.dataset.category ||
-                item.category.includes('clothing') === e.target.dataset.category
-        );
-        console.log(newArr);
-        setGoods(newArr);
-    };
+    const { handleRadioBtn, category } = useContext(ShopContext);
 
     return (
         <div className='filter-btn'>
@@ -25,6 +14,7 @@ function Search(props) {
                     type='radio'
                     data-category='all'
                     onChange={handleRadioBtn}
+                    checked={category === 'all'}
                 />
                 <span>All</span>
             </label>
@@ -35,6 +25,7 @@ function Search(props) {
                     type='radio'
                     data-category='electronics'
                     onChange={handleRadioBtn}
+                    checked={category === 'electronics'}
                 />
                 <span>Electronics</span>
             </label>
@@ -45,6 +36,7 @@ function Search(props) {
                     type='radio'
                     data-category='jewelery'
                     onChange={handleRadioBtn}
+                    checked={category === 'jewelery'}
                 />
                 <span>Jewelery</span>
             </label>
@@ -53,10 +45,22 @@ function Search(props) {
                     className='with-gap'
                     name='group3'
                     type='radio'
-                    data-category='clothing'
+                    data-category="men's clothing"
                     onChange={handleRadioBtn}
+                    checked={category === "men's clothing"}
                 />
-                <span>Clothing</span>
+                <span>Men's clothing</span>
+            </label>
+            <label>
+                <input
+                    className='with-gap'
+                    name='group3'
+                    type='radio'
+                    data-category="women's clothing"
+                    onChange={handleRadioBtn}
+                    checked={category === "women's clothing"}
+                />
+                <span>Women's clothing</span>
             </label>
         </div>
     );

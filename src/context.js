@@ -9,6 +9,7 @@ export const ContextProvider = ({ children }) => {
         order: [],
         isShowBasket: false,
         nameAlert: '',
+        category: 'all',
     };
     const [value, dispatch] = useReducer(reducer, initialState);
 
@@ -42,6 +43,9 @@ export const ContextProvider = ({ children }) => {
 
     value.addProdToBasket = (item) => {
         dispatch({type: 'ADD_PROD_TO_BASKET', payload: item})
+    }
+    value.handleRadioBtn = (e) => {
+        dispatch({type: 'RADIO_BTN', payload: e})
     } 
     return (
         <ShopContext.Provider value={value}>{children}</ShopContext.Provider>

@@ -3,6 +3,7 @@ import { ShopContext } from '../context';
 
 function BasketItem(props) {
     const { id, title, price, quantity } = props;
+    const cost = Math.floor(price * quantity * 100) / 100;
 
     const { removeFromBasket, incQuantity, decQuantity } =
         useContext(ShopContext);
@@ -20,7 +21,7 @@ function BasketItem(props) {
             <span className='btn-remove' onClick={() => decQuantity(id)}>
                 <i className='material-icons'>remove</i>
             </span>
-            = {price * quantity} руб.
+            = {cost}$.
             <span
                 className='secondary-content'
                 onClick={() => removeFromBasket(id)}

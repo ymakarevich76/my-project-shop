@@ -3,7 +3,12 @@ const reducer = (state, { type, payload }) => {
         case 'SET_GOODS':
             return {
                 ...state,
-                goods: payload || [],
+                goods:
+                    state.category !== 'all'
+                        ? payload.filter(
+                              (item) => item.category === state.category
+                          )
+                        : payload,
             };
         case 'CLOSE_ALERT':
             return {
@@ -118,6 +123,18 @@ const reducer = (state, { type, payload }) => {
                 ...state,
                 order: newOrderProd,
                 nameAlert: payload.title,
+            };
+
+        case 'RADIO_BTN':
+            return {
+                ...state,
+                category: payload.target.dataset.category,
+                goods:
+                    state.category !== 'all'
+                        ? state.goods.filter(
+                              (item) => item.category === state.category
+                          )
+                        : state.goods,
             };
 
         default:

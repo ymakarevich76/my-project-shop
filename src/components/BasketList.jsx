@@ -21,7 +21,7 @@ function BasketList() {
             </button>
 
             <li className='collection-item active purple darken-4'>
-                Общая стоимость: {totalPrice} руб.
+                Общая стоимость: {totalPrice}$.
             </li>
         </div>
     );

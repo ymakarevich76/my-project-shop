@@ -3,7 +3,7 @@ import { useContext } from 'react';
 import { ShopContext } from '../context';
 
 function GoodsList() {
-    const { goods = [] } = useContext(ShopContext);
+    const { goods = []} = useContext(ShopContext);
 
     return (
         <div className='list'>
@@ -12,6 +12,7 @@ function GoodsList() {
             ))}
         </div>
     );
+
 }
 
 export { GoodsList };

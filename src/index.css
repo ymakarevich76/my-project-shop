@@ -141,6 +141,8 @@ a.card-content {
 .basket-delete {
     cursor: pointer;
     color: #4a148c;
+    position: absolute;
+    right: 0.9rem;
 }
 
 @keyframes show {
@@ -190,6 +192,8 @@ a.card-content {
 .filter-btn {
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
+    margin-bottom: 2rem;
 }
 
 @media (min-width: 767px) {
@@ -214,11 +218,15 @@ a.card-content {
     }
 
     .collection-item__title {
-      width: 125px;
+      width: 100px;
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
       display: inline-block;
       vertical-align: middle;
+    }
+
+    #toast-container {
+        bottom: 65%;
     }
 }
